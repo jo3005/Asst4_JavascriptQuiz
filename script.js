@@ -25,6 +25,9 @@ function resetGlobalsToDefaults(){
     glSecsAllowed=timeAllowed;
     glScore=0;
     glcorrectAnswers=[];
+    $('#scoreresults').attr('class','row scoreresults scoreclass scoreclass_hidden');
+    $('#scoredata').attr('class','col-md-4 scoreclass scoreclass_hidden d-flex align-items-start flex-column');
+                
     return true;
 };
 
@@ -156,6 +159,10 @@ function updateFinalTime(secsLeft){
 function updateResults(){
     //console.log("updating results to main screen");
     var secsLeft=glSecsAllowed - glSecsElapsed;
+    $('#scoreresults').attr('class','row scoreresults scoreclass scoreclass_visible');
+    $('#scoredata').attr('class','col-md-4 scoreclass scoreclass_visible d-flex align-items-start flex-column');
+
+
     updateFinalScore(glScore);
     updateFinalTime(secsLeft);
     var newInitials=getInitials();
