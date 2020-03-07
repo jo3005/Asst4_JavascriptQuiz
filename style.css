@@ -1,3 +1,13 @@
+:root{
+  --main-bg-color:white;
+  --second-bg-color:#415e8a;
+  --tertiary-color: rgb(37, 37, 37);
+  --main-text-color:  rgb(37, 37, 37);
+  --contrast-text-color: white;
+  --color-five: #b2c0d6;
+}
+
+
 *,
 *::before,
 *::after {
@@ -14,83 +24,26 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color:var(--main-bg-color);
 }
 
-.wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
 
-header {
+header, h1 {
   text-align: center;
   padding: 20px;
-  padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  color:var(--contrast-text-color);
+  background-color: var(--second-bg-color); 
 }
-
-.card {
-  background-color: hsl(0, 0%, 100%);
-  border-radius: 5px;
-  border-width: 1px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
-  font-size: 18px;
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 30px 40px;
-}
-
-.card-header::after {
-  content: " ";
-  display: block;
-  width: 100%;
-  /* background: #e7e9eb; */
-  height: 2px;
-}
-
-.card-body {
-  min-height: 100px;
-}
-
-.card-footer {
-  text-align: center;
-  background-color: white;
-  border: none;
-}
-
-.card-footer::before {
-  content: " ";
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
-}
-
-.card-footer::after {
-  content: " ";
-  display: block;
-  clear: both;
-  
-
-}
-
-.card-header {
-  background: hsl(206, 17%, 28%);
-  color: white;
-}
-
 
 .btn {
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px  0px;
-  color: hsl(0, 0%, 100%);
+  background-color: var(--second-bg-color);
   display: inline-block;
-  font-size: 22px;
-  line-height: 22px;
-  margin: 16px 16px 16px 20px;
-  padding: 14px 34px;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin: 20px 5px 20px 5px;
+  padding: 15px 15px 15px 15px;
+  min-width: 200px;
   text-align: center;
   cursor: pointer;
 }
@@ -101,59 +54,133 @@ header {
   color: lightgray;
 }
 
+.btn:hover {
+  cursor: default;
+  background-color:var(--tertiary-color);
+  color: var(--contrast-text-color);
+}
+
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
 }
-
-.noleftpadding {
-  padding-left: -15px;
+.description, h3{
+  padding:15px;
+  margin-bottom: -15px;
 }
+
+.slogan {
+  text-align: center;
+}
+
 
 .float-left {
     float: left;
   }
   
+.float-right {
+    float:right
+  }
+
 .container-fluid.row {
-    padding-left: 0px;
     background-color: yellow;
 }
 
-h5.modal-title {
-  border-bottom: thin;
-  border-bottom-style: solid;
-  font-size: 18pt;
-  color: white;
-  background-color:hsl(206, 17%, 28%) ;
+#startbtncol, #scoresbtncol {
   text-align: center;
+}
+
+.modal-header {
+  color: var(--contrast-text-color);
+  background-color:var(--second-bg-color) ;
+  
+}
+
+h5.modal-title {
+  font-size: 18pt;
 }
 
 .modal-footer {
     align-items:left;
 }
 
-
-
-div.container-fluid.modal-footer {
-    margin-left: 0px;
+.question_text {
+  font-size: 1.1rem;
 }
 
+.answertextitem {
+  font-size: 0.9rem;
+  display: list-item;
+  list-style-type: upper-alpha;
+  list-style-position: inside ;
+  text-justify: left;
+  text-indent: -1rem;
+  padding-left: 2rem;
+}
+div.container-fluid.modal-footer {
+    margin-left: 15px;
+}
 
+.scoreclass {
+  /* visibility: hidden; */
+  margin-top:15px;
+}
+
+.scoreclass > div.row  {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+
+}
+
+.scoreclass > div.row > p {
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
 
 .answertextitem:hover {
-  background-color: lightskyblue;
+  background-color: var(--color-five);
 }
 
 .answertextitem:active{
-  background-color: darkblue;
+  background-color: var(--tertiary-color);
   color: white;
 }
 
 .selected {
-  background-color: darkblue;
+  background-color: var(--tertiary-color);
   color: white;
 }
 
+#minutesDisplay, #secondsDisplay {
+  font-variant-numeric: normal;
+  
+}
+
+.timedisplay, .scoredisplay, #minutesDisplay, #secondsDisplay,a.span,span#totalscore {
+  margin-bottom: 0px;
+  margin-top: 15px;
+  font-size: 1em;
+  float:left;
+}
+
+p.scoredisplay {
+  margin-left:25px
+}
+
+.scoredisplay, #totalscore {
+  font-weight: bold;
+}
+
+#minutesDisplay, #secondsDisplay {
+  margin-top: 0px;
+  float:left;
+}
+
+#quitbtn, #backbtn, #nextbtn {
+  max-width:auto;
+  min-width:60px;
+}
 @media (max-width: 690px) {
     .btn {
       font-size: 1rem;

@@ -9,8 +9,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
         crossorigin="anonymous"> 
     <link rel="stylesheet" href="./style.css">
-
-</head>
+    </head>
 <body>
     <nav class="navbar">
 
@@ -19,14 +18,53 @@
 
     <!-- Button trigger modal -->
     <div class="container-fluid">
-        <h1 class="" >
-            Jo's Javascript Quiz
-        </h1>
+        <div class="row">
+            <h1 class="header col-md-12" >Jo's Javascript Quiz</h1>
+        </div>
+        <div class="row">
+            <p class="description col-md-12" >This timed quiz will test your knowledge of JavaScript. See how many
+                questions you can answer before the buzzer.  But be aware that time reduces by 10 seconds when you get an answer wrong.  So don't go too fast...
+            </p>
+
+        </div>
+        <div class="row">
+            <h3 class="slogan col-md-12">Good luck!</h3>
+        </div>
+        <div class="row">
+            <div class=col-md-2></div>
+            <div class=col-md-4 id='startbtncol'><button type="button" class="btn btn-primary btn-small" id="startbtn">Start Quiz</button></div>
+            <div class=col-md-4 id='scoresbtncol'><button type="button" class="btn btn-primary btn-small" id="getScores">Get Top Scores</button></div>
+            <div class=col-md-2></div>
+            
+        </div>
+
+        <div class="row scoreresults ">
+            <div class="col-md-2 scoreclass"></div>
+            <div class="col col-md-4 scoreclass d-flex align-items-end flex-column">
+                <div class="row ">
+                    <p class="">Your final score:</p> 
+                </div>
+                <div class="row">
+                    <p class="">Seconds left:</p>
+                </div>
+            </div>
+            <div class="col-md-4 scoreclass d-flex align-items-start flex-column">
+                <div class="row">
+                    <p class="" id="finalscore">0</p>
+                </div>
+                <div class="row">   
+                    <p class="" id="finaltime">00</p>
+                </div>
+            </div>
+            <div class="col-md-2 scoreclass"></div>
+        </div>
+        
         <!-- <button type="button" class="btn btn-primary btn-small" data-toggle="modal" data-target="#modelId" id="startbtn">Start</button> -->
-        <button type="button" class="btn btn-primary btn-small" id="startbtn">Start</button>
+        
+        
     
     </div>
-    <!-- Modal -->
+    <!-- Modal 1-->
     <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" 
         aria-hidden="true" data-target="#staticBackdrop">
         <div class="modal-dialog" role="document">
@@ -39,8 +77,8 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
-                            <p class="question_text" id="question_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi aliquam sunt cupiditate, libero voluptate dolorem blanditiis 
-                                harum porro optio veniam? Itaque quas adipisci optio culpa libero eligendi quisquam, laborum inventore.</p>
+                            <p class="question_text" id="question_text"><i class="fas fa-question-square    "></i></p>
+                                
                         </div>
                         <div class="row">
                             <ol class="list-group" type="a"> 
@@ -58,32 +96,79 @@
                             
                     </div>
                 </div>
+                <div class="container" id="myalerts">
+
+                </div>
                 <div class="modal-footer">
                     <div class="container-fluid">  
                         <div class="row">
-                            <div class="col col-md-4 noleftpadding" style="padding-left: 0px">
+                            <div class="col col-md-6">
                                 <div class="row">
-                                    <p class="">Time taken: 
-                                        <a id="minutesDisplay" value="00">00</a>
-                                        <a> : </a>
-                                        <a id="secondsDisplay" value="00">00</a>
-                                    </p>
+                                    <div class="col col-md-9 timer" id="timer">
+                                            <div class="card bg-light text-dark">
+                                            <div class="d-flex flex-wrap justify-content-center mt-2">
+                                            <a><span class="badge min" id="minutesDisplay"></span></a> :
+                                            <a><span class="badge sec" id="secondsDisplay"></span></a>
+                                            </div>
+                                       
+                                        </div>
                                 </div>
                                 <div class="row">
-                                    <p class="">Score: 
-                                        <a id="totalscore" value="00">00</a>
-                                        
-                                    </p>
+                                    <div class="col col-md-12">
+                                        <div class="row">
+                                            <div class="col col-md-8">
+                                                <p class="scoredisplay">Score: </p>
+                                            </div>
+                                            <div class="col col-md-4">
+                                                <span id="totalscore" value="00">00</span>
+                                            </div>
+                                        </div>
                                 </div>
+                                    </div>
                             </div>
-                            <div class="col col-md-4" style="text-align:center">
-                                <button type="button" class="btn btn-primary" id="backbtn" >Back</button>
-                                <button type="button" class="btn btn-primary" id="nextbtn">Next</button>
-                            </div>
-                            <div class="col col-md-4 quitbtncol" style="padding-right: 0px">
+                        </div>
+                            <div class="col col-md-6 quitbtncol" style="padding-right: 0px">
                                 <button type="button" class="btn btn-small btn-danger float-right" data-dismiss="modal" 
                                     id="quitbtn">Quit</button>
                             </div>
+                        
+                        
+                        
+                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- Modal 2-->
+    <div class="modal fade" id="modalScores" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" 
+        aria-hidden="true" data-target="#staticBackdrop">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">Highest scores 
+                            </h5>
+                        </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <ul class="list-group" type="a"> 
+                                <div class="resultscores" id="resultscores">
+                                    
+                                </div>
+                            </ul>                                
+                        </div>
+                    </div>
+                </div>
+                <div class="container" id="myalerts">
+
+                </div>
+                <div class="modal-footer">
+                    <div class="container-fluid">  
+                        <div class="row">
                         </div>
                     </div>
                     
@@ -94,7 +179,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
+    <script src = "./QuestionData.js" ></script>
+    <script src = "./std_scripts.js" ></script>
     <script src = "./script.js" ></script>
 
 
